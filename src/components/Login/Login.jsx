@@ -15,7 +15,6 @@ const Login = () => {
         login(email, password)
             .then(result => {
                 console.log(result.user);
-                console.log('successful');
             })
             .catch(error => {
                 console.log(error.message);
