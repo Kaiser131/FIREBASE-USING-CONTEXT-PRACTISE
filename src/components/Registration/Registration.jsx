@@ -3,24 +3,35 @@ import { AuthContext } from "../../provider/AuthProvider";
 
 const Registration = () => {
 
-    const { nameTwo } = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
 
 
     const handleRegister = e => {
         e.preventDefault();
-        const name = e.target.name.value;
+        // const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
         console.log(name, email, password);
 
+        createUser(email, password)
+            .then(result => {
+                console.log(result);
+
+            })
+            .catch(error => {
+                console.log(error.message);
+            });
+
     };
+
+
     return (
         <div className="hero bg-base-200 min-h-screen">
 
             <div className="hero-content flex-col ">
 
                 <div className="text-center">
-                    <h1 className="text-5xl font-bold">Register Now !{nameTwo.name}</h1>
+                    <h1 className="text-5xl font-bold">Register Now !</h1>
                 </div>
 
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -29,7 +40,7 @@ const Registration = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" placeholder="name" name="name" className="input input-bordered" required />
+                            <input type="text" placeholder="name" name="name" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">

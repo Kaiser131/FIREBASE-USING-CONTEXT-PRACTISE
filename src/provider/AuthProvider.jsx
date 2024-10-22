@@ -1,4 +1,6 @@
-import { createContext } from "react";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createContext, useState } from "react";
+import auth from "../Firebaser/firebase.config";
 
 // creted AuthContext
 export const AuthContext = createContext(null);
@@ -6,11 +8,26 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
 
     // datas that i will be passed
-    const name = { name: 'Kaiser' };
-    const nameTwo = { name: 'Lamia' };
 
-    // lets create multiple data
-    const authInfo = { name, nameTwo };
+
+    const [user, setUser] = useState(null);
+
+
+    // create user
+    const createUser = (email, password) => {
+        return createUserWithEmailAndPassword(auth, email, password);
+    };
+
+    // signin user
+
+    const login = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password);
+    };
+
+
+
+    // context data
+    const authInfo = { user, createUser, login };
 
 
     return (
