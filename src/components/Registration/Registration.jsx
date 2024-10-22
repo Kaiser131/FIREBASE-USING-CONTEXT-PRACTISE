@@ -5,7 +5,6 @@ const Registration = () => {
 
     const { createUser } = useContext(AuthContext);
 
-
     const handleRegister = e => {
         e.preventDefault();
         // const name = e.target.name.value;
