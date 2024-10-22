@@ -1,9 +1,13 @@
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Registration = () => {
+
+    const { nameTwo } = useContext(AuthContext);
+
+
     const handleRegister = e => {
         e.preventDefault();
-
-
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
@@ -16,7 +20,7 @@ const Registration = () => {
             <div className="hero-content flex-col ">
 
                 <div className="text-center">
-                    <h1 className="text-5xl font-bold">Register Now</h1>
+                    <h1 className="text-5xl font-bold">Register Now !{nameTwo.name}</h1>
                 </div>
 
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
