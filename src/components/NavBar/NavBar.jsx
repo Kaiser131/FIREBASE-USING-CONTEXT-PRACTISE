@@ -9,8 +9,10 @@ const NavBar = () => {
     const navLinks = <>
         <div className="flex gap-4">
             <li><NavLink to='/'>Home</NavLink></li>
-            <li><NavLink to='/login'>Login</NavLink></li>
-            <li><NavLink to='/register'>Register</NavLink></li>
+            {!user && <div className="flex gap-4">
+                <li><NavLink to='/login'>Login</NavLink></li>
+                <li><NavLink to='/register'>Register</NavLink></li>
+            </div>}
             {
                 user && <li><NavLink to='/order'>Order</NavLink></li>
             }
