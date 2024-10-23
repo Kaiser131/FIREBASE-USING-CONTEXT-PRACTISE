@@ -9,13 +9,12 @@ const Registration = () => {
     // navigate to home component
     const navigate = useNavigate();
 
+    // create new user
     const handleRegister = e => {
         e.preventDefault();
         // const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(name, email, password);
-
         createUser(email, password)
             .then(result => {
                 console.log(result);
